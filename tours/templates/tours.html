@@ -8,20 +8,20 @@
     <thead>
         <tr>
             <th scope="col">#</td>
-            <th scope="col">Nombre</td>
-            <th scope="col">Días</td>
-            <th scope="col">Precio</td>
-            <th scope="col"></td>
+            <th scope="col" class="col-8">Nombre</td>
+            <th scope="col" class="col-1">Días</td>
+            <th scope="col" class="col-1">Precio</td>
+            <th scope="col" class="col-1"></td>
         </tr>
     </thead>
     <tbody>
         {% for t in tours %}
         <tr>
             <th scope="row col-1">{{ t.id }}</th>
-            <td class="col-8">{{ t.nombre }}</td>
-            <td class="col-1">{{ t.dias }}</td>
-            <td class="col-1">$ {{ t.precio|intcomma }}</td>
-            <td class="col-1">
+            <td>{{ t.nombre }}</td>
+            <td>{{ t.dias }}</td>
+            <td>$ {{ t.precio|intcomma }}</td>
+            <td>
                 <button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i></button>
                 <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
             </td>
