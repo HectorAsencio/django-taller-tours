@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+<h1>Listado de Tours</h1>
+
+<table class="table table-hover table-responsive">
+    <thead>
+        <tr>
+            <th scope="col">#</td>
+            <th scope="col">Nombre</td>
+            <th scope="col">Días</td>
+            <th scope="col">Precio</td>
+            <th scope="col"></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in tours %}
+        <tr>
+            <th scope="row col-1">{{ t.id }}</th>
+            <td class="col-8">{{ t.nombre }}</td>
+            <td class="col-1">{{ t.dias }}</td>
+            <td class="col-1">$ {{ t.precio|intcomma }}</td>
+            <td class="col-1">
+                <button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i></button>
+                <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary" type="button">Nuevo Tour</button>
+</div>
+{% endblock content %}
