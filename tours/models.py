@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Usuario(AbstractUser):
-    rut = models.CharField(max_length=10)
+    rut = models.CharField(max_length=16)
 
 
 class Tour(models.Model):

@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'tours'
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'localflavor',
+    'tours',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +131,13 @@ AUTH_USER_MODEL = 'tours.Usuario'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'tours-index'
+
+LOGIN_URL = 'accounts-login'
+
+LOGOUT_REDIRECT_URL = 'tours-index'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

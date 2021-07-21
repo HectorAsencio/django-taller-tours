@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DeleteView, TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Tour
 
 
@@ -8,11 +10,7 @@ class IndexView(TemplateView):
         return render(request, 'index.html')
 
 
-class ToursView(TemplateView):
-    def get(self, request, **kwargs):
-        Tours = Tour.objects.all()
-        context = {
-            'title': 'Listado de Tours',
-            'tours': Tours
-        }
-        return render(request, 'tours.html', context)
+class ToursListView(ListView):
+    model = Tour
+    template_name = 'tours.html'
+    context_object_name = 'tours'

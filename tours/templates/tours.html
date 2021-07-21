@@ -2,7 +2,7 @@
 {% load humanize %}
 {% block content %}
 
-<h1>Listado de Tours</h1>
+<legend class="border-bottom mb-4">Listado de Tours</legend>
 
 <table class="table table-hover table-responsive">
     <thead>
@@ -22,8 +22,8 @@
             <td>{{ t.dias }}</td>
             <td>$ {{ t.precio|intcomma }}</td>
             <td>
-                <button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i></button>
-                <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
+                <a href="#" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i></a>
+                <a href="#" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
             </td>
         </tr>
         {% endfor %}
