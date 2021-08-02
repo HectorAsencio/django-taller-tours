@@ -10,7 +10,7 @@ class Usuario(AbstractUser):
 class Tour(models.Model):
     nombre = models.CharField(max_length=64)
     descripcion = models.TextField(max_length=500)
-    foto = models.ImageField(default='default.jpg', upload_to='tours')
+    foto = models.ImageField(default='tours/default.jpg', upload_to='tours')
     requisitos = models.TextField(max_length=500, default='Sin requisitos adicionales.')
     dias = models.SmallIntegerField(null=True, blank=True)
     precio = models.SmallIntegerField(null=True, blank=True)
@@ -21,7 +21,7 @@ class Tour(models.Model):
     def save(self):
         super().save()
         img = Image.open(self.foto.path)
-        if (img.height > 240 or img.width > 320):
-            output_size = (320, 240)
+        if (img.height > 480 or img.width > 640):
+            output_size = (640, 640)
             img.thumbnail(output_size)
             img.save(self.foto.path)
