@@ -4,6 +4,7 @@
 
 <legend class="border-bottom mb-4">Listado de Tours</legend>
 
+<!--
 <table class="table table-hover table-responsive">
     <thead>
         <tr>
@@ -28,8 +29,34 @@
         </tr>
         {% endfor %}
     </tbody>
-</table>
+</table>-->
 
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    {% for t in tours %}
+    <div class="col">
+        <div class="card shadow-sm">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h4 class="display-6">Much longer title that wraps to multiple lines</h2>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" class="rounded-circle border border-white" width="32" height="32">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Pakistan</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>{{ t.dias }} días</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button class="btn btn-primary" type="button">Nuevo Tour</button>
 </div>

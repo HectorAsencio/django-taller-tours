@@ -1,15 +1,37 @@
-{% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% extends 'base.html' %}
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Inicio de Sesión</legend>
-        {{ form|crispy }}
-    </fieldset>
-    <div class="form-group">
-        <button class="btn btn-info" type="submit">Iniciar Sesión</button>
-        <a class="btn btn-info" href="{% url 'accounts-register' %}">¡Regístrese ahora!</a>
+<div class="row align-items-center g-lg-5 py-5">
+    <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
+        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required
+            form group has a validation state that can be triggered by attempting to submit the form without completing
+            it.</p>
     </div>
-</form>
+    <div class="col-md-10 mx-auto col-lg-5">
+        <form method="POST" action="{% url 'accounts-login' %}" class="p-4 p-md-5 border rounded-3 bg-light">
+            {% csrf_token %}
+            <div class="form-floating mb-3">
+                {{ form.username }}
+                <label for="{{ form.username.id_for_label }}">Usuario</label>
+            </div>
+            <div class="form-floating mb-3">
+                {{ form.password }}
+                <label for="{{ form.password.id_for_label }}">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+                {{ form.username.errors }}
+                {{ form.password.errors }}
+                {{ form.non_field_errors }}
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
+            <hr class="my-4">
+            <small class="text-muted">Si no tiene cuenta, <a href="{% url 'accounts-register' %}">regístrse aquí</a>.</small>
+        </form>
+    </div>
+</div>
 {% endblock content %}
