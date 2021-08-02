@@ -2,53 +2,28 @@
 {% load humanize %}
 {% block content %}
 
-<h1 class="border-bottom display-1">Listado de Tours</h1>
-
-<!--
-<table class="table table-hover table-responsive">
-    <thead>
-        <tr>
-            <th scope="col">#</td>
-            <th scope="col" class="col-8">Nombre</td>
-            <th scope="col" class="col-1">Días</td>
-            <th scope="col" class="col-1">Precio</td>
-            <th scope="col" class="col-1"></td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for t in tours %}
-        <tr>
-            <th scope="row col-1">{{ t.id }}</th>
-            <td>{{ t.nombre }}</td>
-            <td>{{ t.dias }}</td>
-            <td>$ {{ t.precio|intcomma }}</td>
-            <td>
-                <a href="#" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i></a>
-                <a href="#" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>-->
+<h1 class="border-bottom">Listado de Tours</h1>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     {% for t in tours %}
-    <div class="card shadow-sm">
-        <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
-        <img src="{{ t.foto.url }}" />
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+    <div class="col">
+        <div class="card shadow-sm">
+            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+            <img src="{{ t.foto.url }}" />
+            <div class="card-body">
+                <b class="card-text">{{ t.nombre }}</b>
+                <p class="card-text">{{ t.descripcion }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Inscripción</button>
+                    </div>
+                    <small class="text-muted">Duración: {{ t.dias }} día/s.</small>
+                </div>
             </div>
-            <small class="text-muted">9 mins</small>
-          </div>
         </div>
-      </div>
-    {% endfor %}
     </div>
+    {% endfor %}
+</div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button class="btn btn-primary" type="button">Nuevo Tour</button>
 </div>
